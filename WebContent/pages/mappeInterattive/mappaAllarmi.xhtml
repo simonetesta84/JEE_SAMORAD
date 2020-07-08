@@ -1,0 +1,79 @@
+<ui:composition template="/WEB-INF/templates/basicTemplate.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:v="urn:schemas-microsoft-com:vml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"  
+    xmlns:f="http://java.sun.com/jsf/core"  
+    xmlns:p="http://primefaces.org/ui"> 
+	    
+    <ui:define name="head">
+    	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBK4sd0IywYEqSNo2YzGUjYBy2qdgzSTQw&amp;sensor=false"/>
+    	<script type="text/javascript" src="../../javaScript/scriptMappaCommonFun.js"/>
+    	<script type="text/javascript" src="../../javaScript/scriptMappaAllarmi.js"/>
+    </ui:define>
+    
+    <ui:define name="frameSinistra">
+		<ui:include src="../../WEB-INF/templates/frameSinistra.xhtml">
+			<ui:param name="p_entity" value="#{mappaAllarmiController}" />
+		</ui:include>
+
+		<span class="classInputSogliaAllarmi">
+			<h:outputText value="#{msg['allarmi.imposta.soglia']}" />
+        	<p:inputMask styleClass="inputAllarmi" value="#{mappaAllarmiController.sogliaAllarmeLabel}" mask="9.99"/>
+		</span>		
+		<p:commandButton styleClass="commandSalvaSoglia" icon="ui-icon-arrowreturnthick-1-e" action="#{mappaAllarmiController.updateSogliaAllarmi}" update="formBody:chartSoglieConcentrazioni, formBody:infoControllerToJs, formBody:infoControllerToJsSingleElemento, formBody:infoControllerToJsSinglePointMarker, formBody:typeGeneraleController, formBody:typeConcentrazioniController, formBody:typeAllarmeController, formBody:panelChartRange, formBody:numSoglia"/>		
+		  
+		<br></br>
+		<br></br>
+		
+		<span class="classInputSogliaAllarmi">
+			<h:outputText value="#{msg['allarmi.num.allarmi']}" />
+			<h:outputText value="#{mappaAllarmiController.numAllarmiSupSoglia}" id="numSoglia"/>
+		</span>
+		
+		<p:outputPanel id="panelChartRange" style="display:block" >	
+			<div id="popupRangeAllarmi" onmouseover="ShowImage()" onmouseout="HideImage()">
+	    		<p:dataTable var="legendRange" value="#{mappaAllarmiController.rangeColourLegend}">  
+			        <p:column bgcolor="#{legendRange.labelColour}">  
+			          <div style="background-color: ${legendRange.labelColour}; width: 10px; height: 10px; border: thin solid black;"/>
+			        </p:column>  
+			  
+			        <p:column headerText="#{mappaAllarmiController.unitMisura}">
+			            <h:outputText styleClass="styleCaratteriFrameDestraValue" value="#{legendRange.rangeColourDa}&#37;" />
+			        </p:column> 
+			    </p:dataTable>
+			</div>
+			
+	    	<div id="chartRangeConcentrazioniDiv" onmouseover="ShowImage()" onmouseout="HideImage()">
+	    		<p:meterGaugeChart id="chartSoglieConcentrazioni" styleClass="chartRangeConcentrazioni" value="#{mappaAllarmiController.chartSoglieConcentrazioni}" seriesColors="#{mappaAllarmiController.elencoColourChart}"/>
+	    	</div>
+    	</p:outputPanel>		
+    </ui:define>
+    
+    <ui:define name="contenuto">
+			<h:inputHidden id="infoControllerToJs" value="#{mappaAllarmiController.fromObjectToJsonMapStr}" />
+			<h:inputHidden id="infoControllerToJsSingleElemento" value="#{mappaAllarmiController.singleElemento}"/>
+			<h:inputHidden id="infoControllerToJsSinglePointMarker" value="#{mappaAllarmiController.singlePointMarker}"/>
+			<h:inputHidden id="typeGeneraleController" value="#{mappaAllarmiController.typeGeneraleController}"/>
+			<h:inputHidden id="typeConcentrazioniController" value="#{mappaAllarmiController.typeConcentrazioniController}"/>
+			<h:inputHidden id="typeAllarmeController" value="#{mappaAllarmiController.typeAllarmeController}"/>				
+			<div id="googleMapAllarmi" class="mappeStyle"></div>   
+    </ui:define>
+    
+    <ui:define name="frameDestra">
+ 		<h:inputHidden id="infoJsToController" value="#{mappaAllarmiController.fromJsonToObjectInfoStr}" />
+ 		<p:remoteCommand name="infoJsToControllerFun" update="formBody:graficiMappaPanel, formBody:valoriElementiSpallaDestra, formBody:panelChartRange, formBody:infoControllerToJsSinglePointMarker" action="#{mappaAllarmiController.actionSetFromJsonToObjectInfoObjAllarmi}"/>
+ 		<ui:include src="../../WEB-INF/templates/frameDestra.xhtml">
+			<ui:param name="p_entity" value="#{mappaAllarmiController}" />
+		</ui:include>
+ 	</ui:define>
+
+     <ui:define name="down">
+			<p:panel id="graficiMappaPanel" styleClass="panelImplGraficiContainer" header="#{msg['grafici.mappa']}" >
+		    	<ui:include src="../../WEB-INF/templates/downGrafici.xhtml">
+					<ui:param name="p_entity" value="#{mappaAllarmiController}" />
+				</ui:include>
+			</p:panel>
+    </ui:define>
+
+</ui:composition>

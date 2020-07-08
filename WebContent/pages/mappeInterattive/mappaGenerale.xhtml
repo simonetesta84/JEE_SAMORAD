@@ -1,0 +1,46 @@
+<ui:composition template="/WEB-INF/templates/basicTemplate.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:v="urn:schemas-microsoft-com:vml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"  
+    xmlns:f="http://java.sun.com/jsf/core"  
+    xmlns:p="http://primefaces.org/ui"> 
+		
+    <ui:define name="head">
+    	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBK4sd0IywYEqSNo2YzGUjYBy2qdgzSTQw&amp;sensor=false"/>
+    	<script type="text/javascript" src="../../javaScript/scriptMappaCommonFun.js"/>
+    	<script type="text/javascript" src="../../javaScript/scriptMappaGenerale.js"/>
+    </ui:define>
+		    
+    <ui:define name="frameSinistra">
+    	<ui:include src="../../WEB-INF/templates/frameSinistra.xhtml">
+			<ui:param name="p_entity" value="#{mappaGeneraleController}" />
+		</ui:include>			
+    </ui:define>	
+    
+    <ui:define name="contenuto">
+			<h:inputHidden id="infoControllerToJs" value="#{mappaGeneraleController.fromObjectToJsonMapStr}" />
+			<h:inputHidden id="infoControllerToJsSinglePointMarker" value="#{mappaGeneraleController.singlePointMarker}"/>
+			<h:inputHidden id="typeGeneraleController" value="#{mappaGeneraleController.typeGeneraleController}"/>
+			<h:inputHidden id="typeConcentrazioniController" value="#{mappaGeneraleController.typeConcentrazioniController}"/>
+			<h:inputHidden id="typeAllarmeController" value="#{mappaGeneraleController.typeAllarmeController}"/>
+			<div id="googleMapGenerale" class="mappeStyle"></div>
+    </ui:define>
+    
+    <ui:define name="frameDestra">
+ 		<h:inputHidden id="infoJsToController" value="#{mappaGeneraleController.fromJsonToObjectInfoStr}" />
+ 		<p:remoteCommand name="infoJsToControllerFun" update="formBody:graficiMappaPanel, formBody:valoriElementiSpallaDestra, formBody:infoControllerToJsSinglePointMarker" action="#{mappaGeneraleController.actionSetFromJsonToObjectInfoObj}"/>
+ 		<ui:include src="../../WEB-INF/templates/frameDestra.xhtml">
+			<ui:param name="p_entity" value="#{mappaGeneraleController}" />
+		</ui:include>
+ 	</ui:define>
+    
+    <ui:define name="down">
+			<p:panel id="graficiMappaPanel" styleClass="panelImplGraficiContainer" header="#{msg['grafici.mappa']}">
+		    	<ui:include src="../../WEB-INF/templates/downGrafici.xhtml">
+					<ui:param name="p_entity" value="#{mappaGeneraleController}" />
+				</ui:include>
+			</p:panel>
+    </ui:define>
+    
+</ui:composition>

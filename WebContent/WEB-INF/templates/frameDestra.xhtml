@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition 
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:v="urn:schemas-microsoft-com:vml"
+	xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"  
+    xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+	
+		
+	<div id = "listaValoriElementi">
+		<p:panel styleClass="frameDestraStyle" id = "valoriElementiSpallaDestra" header="#{msg['element.header']}"> 
+			<p:outputLabel style="font-size: x-small; font-weight: bolder;">#{msg['element.coordinata']} </p:outputLabel>
+			<p:outputLabel style="font-size: small; font-weight: bolder;">[#{p_entity.coorGeoLt},#{p_entity.coorGeoLn}]</p:outputLabel>
+			 
+			<p:panelGrid>  
+				<f:facet name="header">  
+			        <p:row>  
+			            <p:column styleClass="styleElementHeader">#{msg['chart.potassio']}</p:column>  
+			            <p:column styleClass="styleElementHeader">#{msg['chart.uranio']}</p:column>  
+			        </p:row>  
+			    </f:facet> 
+			    <p:row>  
+			        <p:column styleClass="styleElementValue">#{p_entity.kPotassio}</p:column>  
+			        <p:column styleClass="styleElementValue">#{p_entity.euUranio}</p:column>  
+			    </p:row>
+			     <p:row>  
+			        <p:column styleClass="styleElementValue">&#177; #{p_entity.dtKpotassio}</p:column>  
+			        <p:column styleClass="styleElementValue">&#177; #{p_entity.deuUranio}</p:column>  
+			    </p:row>							 
+		        <p:row>  
+		            <p:column styleClass="ui-widget-header" style="font-size: small; text-align: center;">#{msg['chart.torio']}</p:column>  
+		            <p:column styleClass="ui-widget-header" style="font-size: small; text-align: center;">#{msg['chart.cesio']}</p:column>      
+		        </p:row>  
+			    <p:row>  
+			       <p:column styleClass="styleElementValue">#{p_entity.ethTorio}</p:column>  
+			       <p:column styleClass="styleElementValue">#{p_entity.csCesio}</p:column>    
+			    </p:row>
+			    <p:row>  
+			       <p:column styleClass="styleElementValue">&#177; #{p_entity.dtEthTorio}</p:column>  
+			       <p:column styleClass="styleElementValue">&#177; #{p_entity.dtCsCesio}</p:column>    
+			    </p:row>  
+			</p:panelGrid>
+			
+			<h:panelGrid columns="2">
+				<h:outputLabel styleClass="styleCaratteriFrameDestraLabel" value="#{msg['element.time.point.hms']}"/>			 	
+		 		<h:outputLabel styleClass="styleCaratteriFrameDestraValue" value="#{p_entity.timePointHhMmSsTabDestra}" />
+		 		
+		 		<h:outputLabel styleClass="styleCaratteriFrameDestraLabel" value="#{msg['chart.temp']}"/>			 	
+		 		<h:outputLabel styleClass="styleCaratteriFrameDestraValue" value="#{p_entity.temperaturaTabDestra}" />
+		 		
+		 		<h:outputLabel styleClass="styleCaratteriFrameDestraLabel" value="#{msg['chart.pressione']}" />
+		 		<h:outputLabel styleClass="styleCaratteriFrameDestraValue" value="#{p_entity.pressioneTabDestra}" />
+		 		
+		 		<h:outputLabel styleClass="styleCaratteriFrameDestraLabel" value="#{msg['chart.velocita']}" />
+		 		<h:outputLabel styleClass="styleCaratteriFrameDestraValue" value="#{p_entity.velocitaTabDestra}" />
+		 		
+		 		<h:outputLabel styleClass="styleCaratteriFrameDestraLabel" value="#{msg['chart.altitudine']}" />
+		 		<h:outputLabel styleClass="styleCaratteriFrameDestraValue" value="#{p_entity.altitudineTabDestra}" />
+		 		
+		 		<h:outputLabel styleClass="styleCaratteriFrameDestraLabel" value="#{msg['chart.dem']}" />
+		 		<h:outputLabel styleClass="styleCaratteriFrameDestraValue" value="#{p_entity.demTabDestra}" />
+		 		
+		 		<h:outputLabel styleClass="styleCaratteriFrameDestraLabel" value="#{msg['chart.altitudine.dem']}" />
+		 		<h:outputLabel styleClass="styleCaratteriFrameDestraValue" value="#{p_entity.altitudinedemTabDestra}" />		 		 				 			
+		 	</h:panelGrid>
+
+		</p:panel>
+	</div>			
+</ui:composition>

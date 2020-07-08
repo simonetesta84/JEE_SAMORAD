@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition 
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:v="urn:schemas-microsoft-com:vml"
+	xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"  
+    xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+	    	
+   	<p:panel styleClass="frameSinistraStyle" header="#{msg['info.generale.volo.header']}">
+		<h:panelGrid columns="2">  
+	 		<h:outputLabel styleClass="styleCaratteriFrameDestraLabel" value="#{msg['info.generale.volo.file']}"/>			 	
+	 		<h:outputLabel styleClass="styleCaratteriFrameDestraValue" value="#{p_entity.fileVolo}" />
+	 		
+	 		<h:outputLabel styleClass="styleCaratteriFrameDestraLabel" value="#{msg['info.generale.volo.data']}"/>			 	
+	 		<h:outputLabel styleClass="styleCaratteriFrameDestraValue" value="#{p_entity.dataVolo}" />
+	 		
+	 		<h:outputLabel styleClass="styleCaratteriFrameDestraLabel" value="#{msg['info.generale.volo.ora']}"/>			 	
+	 		<h:outputLabel styleClass="styleCaratteriFrameDestraValue" value="#{p_entity.oraVolo}" />
+	 		
+	 		<h:outputLabel styleClass="styleCaratteriFrameDestraLabel" value="#{msg['info.generale.volo.durata']}"/>			 	
+	 		<h:outputLabel styleClass="styleCaratteriFrameDestraValue" value="#{p_entity.durataVolo}" />
+	 		
+	 		<h:outputLabel styleClass="styleCaratteriFrameDestraLabel" value="#{msg['info.generale.volo.coord.geo']}" />
+	 		<h:outputLabel styleClass="styleCaratteriFrameDestraValue" value="#{p_entity.numCoordGeo}" />
+
+	 	</h:panelGrid>	
+   	</p:panel>
+   				
+</ui:composition>

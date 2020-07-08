@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition 
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"> 
+	
+	<span>
+		<h:graphicImage url="../../resources/images/others/logoSamorad.png"  />
+	</span>	
+	<div id="profile"> 
+		<p:commandButton styleClass="profileStyle" id="dynaButtonProfile" value="#{sessionScope.getContesto.nomeUser} #{sessionScope.getContesto.cognomeUser}" type="button" icon="ui-icon-person"/>  
+   		<p:menu styleClass="profileStyleMenu" overlay="true" trigger="dynaButtonProfile" my="right top" at="right bottom">  
+       		<p:submenu>
+       		 <p:separator />  
+       			<p:menuitem value="#{msg['profile.gestioneFile']}" action="/pages/fileVolo/selezionaFileVolo.xhtml+?faces-redirect=true" icon="ui-icon-arrowrefresh-1-w" ajax="true"/>  
+           		<p:menuitem value="#{msg['profile.logout']}"  action="/pages/login/loginPage.xhtml+?faces-redirect=true" icon="ui-icon-power" ajax="true" />              		  
+       		</p:submenu>  
+   		</p:menu>  
+  		</div>
+ 	<span class="navigator">	 	
+		<p:commandButton id="mapGeneraleButton" styleClass="dimButtomNav" value="#{msg['button.mappe.generale']}" ajax="false" process="@none" action="/pages/mappeInterattive/mappaGenerale.xhtml+?faces-redirect=true"/>				  
+		<p:commandButton id="mapConcentrazioniButton" styleClass="dimButtomNav" value="#{msg['button.mappe.concentrazioni']}" ajax="false" process="@none" action="/pages/mappeInterattive/mappaConcentrazioni.xhtml+?faces-redirect=true"/>				
+		<p:commandButton id="mapAllarmiButton"  styleClass="dimButtomNav" value="#{msg['button.mappe.allarmi']}" ajax="false" process="@none" action="/pages/mappeInterattive/mappaAllarmi.xhtml+?faces-redirect=true"/>		 	 		 
+	</span>		
+</ui:composition>

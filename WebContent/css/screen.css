@@ -1,0 +1,360 @@
+
+/*css basicTemplate*/
+body{
+	margin:auto; 
+	width:1200px;
+	background-color:#DDDDDD;
+}
+
+#contenitoreProgetto{
+	background-color:#DDDDDD;
+}
+
+
+#down{
+	background-color:#FDFDFF;
+	height:550px;
+	border: thin solid black;
+	margin-top: 2px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+}
+
+#corpo{
+	position:relative;
+	width:100%;
+	margin-top: 2px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	border: thin solid black;
+	background-color:#FDFDFF;
+}
+
+#frameSinistra{
+	position:absolute;
+	left:0px;
+	top:0px;
+	width:250px;
+	background-color:#FDFDFF;
+}
+
+#frameDestra{
+	position: absolute;
+	top: 0px;
+	right:0px;
+	width:250px;
+	background-color:#FDFDFF;	
+}
+
+#contenuto{	
+	margin: 0px 250px;
+	position: relative;
+	top: -3px;
+}
+
+#headerBody{
+	background-color:#FDFDFF;
+	height: 75px;
+	margin-top: 5px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	border: thin solid black;
+}
+
+
+/*css headerBody*/
+.navigator{
+	background-color:#FDFDFF;
+	margin:0 auto; 
+	width:630px;
+	position: relative;
+	left: 200px;
+	top:-25px;
+}
+
+#profile{ 
+	position: relative;
+	float: right;
+	top: 0px;
+}
+
+.profileStyle{
+	background-color: #00CC33; 
+}
+
+.profileStyleMenu{
+	background-color: #FDFDFF; 
+}
+
+.dimButtomNav{
+	background-color:#66AAFF;
+	margin: 10px 10px;
+	width:190px;
+	height: 50px;
+}
+
+
+/*css down Grafici*/
+#listaGraficiPanel{
+ width:120px;		
+}
+
+.listaGraficiClass{
+	height: 94px;
+	margin: 10px;
+}
+
+#implementazioniGrafici{
+	position: relative; 
+	top: -460px;
+	left: 130px;
+	width:1030px;
+}
+
+.stileGrafico{
+	width:auto; 
+	margin: 0 auto;
+}
+
+.panelImplGraficiContainer{
+	margin: 3px auto;
+	height:534px;
+	width:1185px;
+}
+
+.graficoCompostoStyle{
+	height:370px;
+}
+
+#scorriChart{
+	position: relative; 
+	left:300px;	
+}
+
+.idFrecciaSinistra{
+	position: relative; 
+	top: 20px;
+}
+
+#implementazioniGraficiScroll{
+	position: relative; 
+	left:130px;
+	top: -20px;
+}
+
+.idFrecciaDestra{
+	position: relative; 
+	left:300px;
+	top: -50px;
+}
+	
+/*css mapPage*/
+.mappeStyle{
+	width:700px;
+	height:410px; 
+	margin:0 auto;
+	margin-top:5px;
+}
+
+.frameSinistraStyle{
+	margin:2px;
+	width:238px;
+}
+
+.frameDestraStyle{
+	margin:2px;
+	width:238px;
+	height: 399px;
+}
+
+.comboElementiMappa{
+	position: absolute;
+	top: 4px;
+	right: 120px;
+	z-index: 1;
+}
+
+.resetCircleRaggioCoordinata{
+	position: absolute;
+	top: 4px;
+	right: 230px;
+	z-index: 1;
+}
+
+.comboElementiMenu{
+	width:120px; 
+	height:40px;
+}
+
+
+/*css loginPage*/
+.loginContenitore{
+	background-color:#FDFDFF;
+	border: thin solid black;
+	margin:auto;
+	width:480px;
+	height: 410px;
+	position: relative;
+	top: 100px;
+	 
+}
+
+.loginPanelGrid{	
+	margin:auto;
+	width:295px;
+	height: 230px;
+	position: relative;
+	top: 70px;
+}
+
+.bottomLoginStyle{
+	background-color:#66AAFF;
+	margin:auto;
+	position: relative;
+	top: 70px;
+	left: 40px;
+	width:220px;
+	height: 70px;
+}
+
+.inputTextLogin{
+	width:280px;
+	height: 30px;
+}
+
+/*css selezionaVolo Tools*/
+.selezToolContenitore{
+	background-color:#FDFDFF;
+	border: thin solid black;
+	margin:auto;
+	width:700px;
+	height: 410px;
+	position: relative;
+	top: 100px;	
+}
+
+.selezToolGrid{	
+	margin:auto;
+	width:500px;
+	height: 300px;
+	position: relative;
+	top: 70px;
+}
+
+.bottomFileToolStyle{
+	background-color:#66AAFF;
+	position: relative;
+	top: 65px;
+	left: 220px;
+	width:170px;
+	height: 50px;
+	margin-left:15px;
+}
+.iconHigh{
+	background-color: #00CC33;
+	position: relative;
+	float: right;
+	top: -28px;
+}
+
+
+/*css frame destra*/
+.styleElementHeader{
+	font-size: small;
+	width:110px;
+	text-align: center;
+}
+
+.styleElementValue{
+	font-size: 8.7pt;
+	text-align: center;
+}
+
+.styleElementValueCoorGeo{
+	font-size: 5px;
+	font-weight: bolder;
+}
+
+.styleCaratteriFrameDestraLabel{
+	font-size:small;
+	font-weight: bold;
+}
+
+.styleCaratteriFrameDestraValue{
+	font-size:small;
+}
+
+/*page concentrazioni*/
+#popupRangeConcentrazioni{
+	background-color: #CCCCCC;
+	width: 150px;
+	position: relative;
+	top:-90px;
+	left:140px;
+	z-index:20;
+	display:none;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	border: thin solid black;
+ }
+ 
+ #popupRangeAllarmi{
+	background-color: #CCCCCC;
+	width: 150px;
+	position: relative;
+	top:0px;
+	left:140px;
+	z-index:20;
+	display:none;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	border: thin solid black;
+ }
+ 
+#chartRangeConcentrazioniDiv{
+	position: absolute; 
+	top: 240px; 
+	z-index:10;
+ }
+ 
+.chartRangeConcentrazioni{
+	position: relative; 
+	left:-5px; 
+	width:260px;
+	height:190px
+}
+
+#bloccoLoadElemento{
+	position: absolute;
+	top: 140px;
+	left: 280px;
+	margin:0 auto;
+	z-index:10;
+	display: none;
+}
+
+/*page allarmi*/
+.inputAllarmi{
+	width: 50px; 
+	height: 20px;
+}
+
+.classInputSogliaAllarmi{
+	position: relative; 
+	left: 5px;
+	top: 5px;
+	z-index:15;
+}
+
+.commandSalvaSoglia{
+	position: relative; 
+	left: 14px;
+	top: 10px;
+	width: 25px;
+	height: 25px; 
+}

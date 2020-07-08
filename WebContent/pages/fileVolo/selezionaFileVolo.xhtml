@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:v="urn:schemas-microsoft-com:vml"
+	xmlns:h="http://java.sun.com/jsf/html"  
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets"   
+    xmlns:p="http://primefaces.org/ui"> 
+
+	<h:head>
+		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+		<link rel="stylesheet" href="../../css/screen.css" type="text/css" media="screen"/>
+	</h:head>
+	
+	<h:body>
+		<f:metadata>
+	  		<f:event type="preRenderView" listener="#{fileVoloController.enableButtonAnnulla}"/>
+		</f:metadata>
+		<p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
+		<div class="selezToolContenitore">
+		<h:outputLabel value="#{msg['file.volo.header']}" style="position:relative; top:30px; left:30px; font-size: x-large; font-weight:bold;" />			
+			<h:form id="formSelezionaVolo"  enctype="multipart/form-data">
+				<p:commandButton styleClass="iconHigh" id="logout" value="#{msg['file.volo.logout']}" title="#{msg['file.volo.logout']}" action="/pages/login/loginPage.xhtml+?faces-redirect=true" ajax="false"/> 					  
+				<div class="selezToolGrid">					           				
+			        <p:outputPanel id="customPanel" ajax="true"> 
+				         
+				    	<p:selectOneRadio id="customRadio" value="#{fileVoloController.optionRadio}" layout="custom">  
+					        <f:selectItem  itemValue="upLoadFile" />  
+					        <f:selectItem  itemValue="selectFile" />
+					        <p:ajax listener="#{fileVoloController.onChooseRadio}" update="formSelezionaVolo" /> 				         	
+				   		 </p:selectOneRadio> 
+				
+						<h:panelGrid columns="2" id="panelGridFileUpload">  
+					        <p:radioButton id="upLoadFileId" for="customRadio" itemIndex="0" />  
+					        <p:outputLabel value="#{msg['file.volo.upload.File']}" style="margin-left:10px; font-size: medium; font-weight:bold;" />
+					        							
+					        <p:spacer width="10" />					      					      					 
+					        <p:fileUpload value="#{fileVoloController.file}" mode="simple" disabled="#{!(fileVoloController.optionRadio eq 'upLoadFile')}"/>					       
+					        					       
+					        <p:spacer width="10" />
+					        <p:outputPanel autoUpdate="true"> 
+								<p:progressBar id="barraId" widgetVar="pbAjax" ajax="true" value="#{fileVoloController.progress}" labelTemplate="{value}%" styleClass="animated"/> 
+							</p:outputPanel>
+					        
+					        <p:spacer width="10" />
+					        <p:spacer width="10" />
+					        
+					        <p:radioButton id="selectFileId" for="customRadio" itemIndex="1"/>  
+					        <h:outputLabel value="#{msg['file.volo.seleziona.volo']}" style="margin-left:10px; font-size: medium; font-weight:bold;" />  
+					        
+					        <p:spacer width="10" />
+					        <p:selectOneMenu value="#{fileVoloController.fileVoloDataBaseSingolo}" effect="fade" disabled="#{!(fileVoloController.optionRadio eq 'selectFile')}">  
+						        <f:selectItem itemLabel="--" itemValue="#{-1}"/>  
+				        	    <f:selectItems value="#{fileVoloController.fileVoloDataBaseList}" var="fileVoloVar" itemLabel="#{fileVoloVar.name}" itemValue="#{fileVoloVar}"/>				        	 
+					        </p:selectOneMenu>
+					        					          		          
+					    </h:panelGrid>  
+				    </p:outputPanel>
+				        		               		           
+		  			<p:commandButton styleClass="bottomFileToolStyle" id="esploraMappa" value="#{msg['file.volo.espora']}" action="#{fileVoloController.esploraMappa}" ajax ="false" onclick="PF('pbAjax').start();"/>
+		  			<p:commandButton styleClass="bottomFileToolStyle" id="AnnullaesploraNuovaMappa" value="#{msg['file.volo.annulla.espora']}" action="#{fileVoloController.returnMappa}" ajax ="false" disabled="#{fileVoloController.disableAnnulla}"/>				 			  			
+		  			
+				 </div>
+			 </h:form> 
+		</div>  
+   </h:body>
+</html>

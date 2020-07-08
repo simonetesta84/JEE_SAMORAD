@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:v="urn:schemas-microsoft-com:vml"
+	xmlns:h="http://java.sun.com/jsf/html"  
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets"   
+    xmlns:p="http://primefaces.org/ui">
+
+	<h:head>
+		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+		<link rel="stylesheet" href="../../css/screen.css" type="text/css" media="screen"/>
+	</h:head>
+
+	<h:body>
+		<p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
+		<div class="loginContenitore">
+			<h:form id="Loginform">    
+				<div class="loginPanelGrid">              
+			        <h:panelGrid columns="1"> 			      	         	
+				         	<h:outputText value="#{msg['login.page.utente']}" />  	         	
+				            <p:inputText styleClass="inputTextLogin" id="nomeUtente" value="#{loginPageController.nomeUtente}"/>  	            
+				            <br/>
+							<h:outputText value="#{msg['login.page.password']}" />  	         	
+				            <p:password styleClass="inputTextLogin" id="passwordUtente" value="#{loginPageController.password}"/>	            	            	        			        
+			        </h:panelGrid>			         	   
+				 	<p:commandButton styleClass="bottomLoginStyle" value="#{msg['login.page.entra']}" action="#{loginPageController.entra}" update="Loginform"/>				 	
+				 </div>
+			 </h:form> 
+		</div>        
+	</h:body>
+</html>

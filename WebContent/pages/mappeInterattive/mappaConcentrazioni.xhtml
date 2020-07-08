@@ -1,0 +1,83 @@
+<ui:composition template="/WEB-INF/templates/basicTemplate.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:v="urn:schemas-microsoft-com:vml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"  
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:c="http://java.sun.com/jsp/jstl/core"  
+    xmlns:p="http://primefaces.org/ui"> 
+    
+    <ui:define name="head">
+    	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBK4sd0IywYEqSNo2YzGUjYBy2qdgzSTQw&amp;sensor=false"/>
+    	<script type="text/javascript" src="../../javaScript/scriptMappaCommonFun.js"/>
+    	<script type="text/javascript" src="../../javaScript/scriptMappaConcentrazioni.js"/>
+    </ui:define>
+    
+    <ui:define name="frameSinistra">
+    	
+    	<ui:include src="../../WEB-INF/templates/frameSinistra.xhtml">
+			<ui:param name="p_entity" value="#{mappaConcentrazioniController}" />
+		</ui:include>
+		
+    	<p:outputPanel id="panelChartRange" style="display:block" >	
+	    	<div id="popupRangeConcentrazioni" onmouseover="ShowImage()" onmouseout="HideImage()">
+	    		<p:dataTable var="legendRange" value="#{mappaConcentrazioniController.rangeColourLegend}">  
+			        <p:column bgcolor="#{legendRange.labelColour}">  
+			          <div style="background-color: ${legendRange.labelColour}; width: 10px; height: 10px; border: thin solid black;"/>
+			        </p:column>  
+			  
+			        <p:column headerText="#{mappaConcentrazioniController.unitMisura}">
+			            <h:outputText styleClass="styleCaratteriFrameDestraValue" value="[#{legendRange.rangeColourDa}&#60;&#61;Val&#60;#{legendRange.rangeColourA}]" />
+			        </p:column> 
+			    </p:dataTable>
+			</div>
+			
+	    	<div id="chartRangeConcentrazioniDiv" onmouseover="ShowImage()" onmouseout="HideImage()">
+	    		<p:meterGaugeChart id="chartSoglieConcentrazioni" styleClass="chartRangeConcentrazioni" value="#{mappaConcentrazioniController.chartSoglieConcentrazioni}" seriesColors="#{mappaConcentrazioniController.elencoColourChart}" title="#{mappaConcentrazioniController.singleElemento}"/>
+	    	</div>
+    	</p:outputPanel>
+
+    </ui:define>
+    <ui:define name="contenuto">
+			<h:inputHidden id="infoControllerToJs" value="#{mappaConcentrazioniController.fromObjectToJsonMapStr}"/>
+			<h:inputHidden id="infoControllerToJsSingleElemento" value="#{mappaConcentrazioniController.singleElemento}"/>
+			<h:inputHidden id="infoControllerToJsSinglePointMarker" value="#{mappaConcentrazioniController.singlePointMarker}"/>
+			<h:inputHidden id="typeGeneraleController" value="#{mappaConcentrazioniController.typeGeneraleController}"/>
+			<h:inputHidden id="typeConcentrazioniController" value="#{mappaConcentrazioniController.typeConcentrazioniController}"/>
+			<h:inputHidden id="typeAllarmeController" value="#{mappaConcentrazioniController.typeAllarmeController}"/>
+			
+			<div id="bloccoLoadElemento">
+				<img src="../../resources/images/others/attesaChangeCombo.gif"/> 
+			</div>
+			
+			<span class = "resetCircleRaggioCoordinata">
+				<p:commandButton style="width:20px; height:20px" type="submit" title="#{msg['concentrazioni.reset.circle']}" icon="ui-icon-cancel" onclick="resetRaggioCircle();"/>
+			</span>
+			 		
+			<span class = "comboElementiMappa">
+				<p:selectOneMenu value="#{mappaConcentrazioniController.singleElemento}" effect="fade"  panelStyle="width:150px;" onchange="waitLoadElemento()">
+	            	<f:selectItems value="#{mappaConcentrazioniController.listElementi}" var="elementoVar" itemLabel="#{elementoVar.name}" itemValue="#{elementoVar}"/>
+	            	<p:ajax listener="#{mappaConcentrazioniController.changeColourElementController}" update="formBody:infoControllerToJsSingleElemento, formBody:panelChartRange"/>   
+	      		</p:selectOneMenu> 
+			</span>
+			
+			<div id="googleMap" class="mappeStyle"></div> 
+    </ui:define>	
+ 	
+ 	<ui:define name="frameDestra">
+ 		<h:inputHidden id="infoJsToController" value="#{mappaConcentrazioniController.fromJsonToObjectInfoStr}" />
+ 		<p:remoteCommand name="infoJsToControllerFun" update="formBody:graficiMappaPanel, formBody:valoriElementiSpallaDestra, formBody:panelChartRange, formBody:infoControllerToJsSinglePointMarker" action="#{mappaConcentrazioniController.actionSetFromJsonToObjectInfoObjConcentrazioni}"/>
+ 		<ui:include src="../../WEB-INF/templates/frameDestra.xhtml">
+			<ui:param name="p_entity" value="#{mappaConcentrazioniController}" />
+		</ui:include>
+ 	</ui:define>	
+ 	
+ 	<ui:define name="down">
+			<p:panel id="graficiMappaPanel" styleClass="panelImplGraficiContainer" header="#{msg['grafici.mappa']}">
+		    	<ui:include src="../../WEB-INF/templates/downGrafici.xhtml">
+					<ui:param name="p_entity" value="#{mappaConcentrazioniController}" />
+				</ui:include>
+			</p:panel>
+    </ui:define>
+
+</ui:composition>

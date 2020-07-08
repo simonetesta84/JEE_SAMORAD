@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition 
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:v="urn:schemas-microsoft-com:vml"
+	xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"  
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+	
+	<div id = "listaGraficiPanel">
+		<p:selectBooleanButton style="width:120px; background-color:#FFB088; font-size: small;" ajax="true" value="#{p_entity.chartPotassio}" onLabel="#{msg['chart.potassio']}" offLabel="#{msg['chart.potassio']}" onIcon="ui-icon-check" offIcon="ui-icon-close">
+			<p:ajax listener="#{p_entity.chooseChart}" update="formBody:panelImplementazioniGrafici,  formBody:valoriElementiSpallaDestra, formBody:infoControllerToJsSinglePointMarker"/>    
+		</p:selectBooleanButton>
+		
+		<p:selectBooleanButton style="width:120px; background-color:#FFB088; font-size: small;" value="#{p_entity.chartUranio}" onLabel="#{msg['chart.uranio']}" offLabel="#{msg['chart.uranio']}" onIcon="ui-icon-check" offIcon="ui-icon-close">
+			<p:ajax listener="#{p_entity.chooseChart}" update="formBody:panelImplementazioniGrafici,  formBody:valoriElementiSpallaDestra, formBody:infoControllerToJsSinglePointMarker"/>
+		</p:selectBooleanButton>
+		
+		<p:selectBooleanButton style="width:120px; background-color:#FFB088; font-size: small;" value="#{p_entity.chartTorio}" onLabel="#{msg['chart.torio']}" offLabel="#{msg['chart.torio']}" onIcon="ui-icon-check" offIcon="ui-icon-close">
+			<p:ajax listener="#{p_entity.chooseChart}" update="formBody:panelImplementazioniGrafici,  formBody:valoriElementiSpallaDestra, formBody:infoControllerToJsSinglePointMarker"/>
+		</p:selectBooleanButton>
+		
+		<p:selectBooleanButton style="width:120px; background-color:#FFB088; font-size: small;" value="#{p_entity.chartCesio}" onLabel="#{msg['chart.cesio']}" offLabel="#{msg['chart.cesio']}" onIcon="ui-icon-check" offIcon="ui-icon-close">
+			<p:ajax listener="#{p_entity.chooseChart}" update="formBody:panelImplementazioniGrafici,  formBody:valoriElementiSpallaDestra, formBody:infoControllerToJsSinglePointMarker"/>
+		</p:selectBooleanButton>
+		
+		<p:selectBooleanButton style="width:120px; background-color:#FFB088; font-size: small;" value="#{p_entity.chartTorioUranio}" onLabel="#{msg['chart.torio.uranio']}" offLabel="#{msg['chart.torio.uranio']}" onIcon="ui-icon-check" offIcon="ui-icon-close">
+			<p:ajax listener="#{p_entity.chooseChart}" update="formBody:panelImplementazioniGrafici,  formBody:valoriElementiSpallaDestra, formBody:infoControllerToJsSinglePointMarker"/>
+		</p:selectBooleanButton>
+		
+		<p:selectBooleanButton style="width:120px; background-color:#FFB088; font-size: small;" value="#{p_entity.chartPotassioUranio}" onLabel="#{msg['chart.potassio.uranio']}" offLabel="#{msg['chart.potassio.uranio']}" onIcon="ui-icon-check" offIcon="ui-icon-close">
+			<p:ajax listener="#{p_entity.chooseChart}" update="formBody:panelImplementazioniGrafici,  formBody:valoriElementiSpallaDestra, formBody:infoControllerToJsSinglePointMarker"/>
+		</p:selectBooleanButton>
+		
+		<p:selectBooleanButton style="width:120px; background-color:#FFB088; font-size: small;" value="#{p_entity.chartChiQuadro}" onLabel="#{msg['chart.chiquadro']}" offLabel="#{msg['chart.chiquadro']}" onIcon="ui-icon-check" offIcon="ui-icon-close">
+			<p:ajax listener="#{p_entity.chooseChart}" update="formBody:panelImplementazioniGrafici,  formBody:valoriElementiSpallaDestra, formBody:infoControllerToJsSinglePointMarker"/>
+		</p:selectBooleanButton>
+		
+		<p:selectBooleanButton style="width:120px; background-color:#FFB088; font-size: small;" value="#{p_entity.chartTemp}" onLabel="#{msg['chart.temp']}" offLabel="#{msg['chart.temp']}" onIcon="ui-icon-check" offIcon="ui-icon-close">
+			<p:ajax listener="#{p_entity.chooseChart}" update="formBody:panelImplementazioniGrafici,  formBody:valoriElementiSpallaDestra, formBody:infoControllerToJsSinglePointMarker"/>
+		</p:selectBooleanButton>
+		
+		<p:selectBooleanButton style="width:120px; background-color:#FFB088; font-size: small;" value="#{p_entity.chartPressione}" onLabel="#{msg['chart.pressione']}" offLabel="#{msg['chart.pressione']}" onIcon="ui-icon-check" offIcon="ui-icon-close">
+			<p:ajax listener="#{p_entity.chooseChart}" update="formBody:panelImplementazioniGrafici,  formBody:valoriElementiSpallaDestra, formBody:infoControllerToJsSinglePointMarker"/>
+		</p:selectBooleanButton>
+		
+		<p:selectBooleanButton style="width:120px; background-color:#FFB088; font-size: small;" value="#{p_entity.chartVelocita}" onLabel="#{msg['chart.velocita']}" offLabel="#{msg['chart.velocita']}" onIcon="ui-icon-check" offIcon="ui-icon-close">
+			<p:ajax listener="#{p_entity.chooseChart}" update="formBody:panelImplementazioniGrafici,  formBody:valoriElementiSpallaDestra, formBody:infoControllerToJsSinglePointMarker"/>
+		</p:selectBooleanButton>
+		
+		<p:selectBooleanButton style="width:120px; background-color:#FFB088; font-size: small;" value="#{p_entity.chartAltitudine}" onLabel="#{msg['chart.altitudine']}" offLabel="#{msg['chart.altitudine']}" onIcon="ui-icon-check" offIcon="ui-icon-close">
+			<p:ajax listener="#{p_entity.chooseChart}" update="formBody:panelImplementazioniGrafici,  formBody:valoriElementiSpallaDestra, formBody:infoControllerToJsSinglePointMarker"/>
+		</p:selectBooleanButton>
+		
+		<p:selectBooleanButton style="width:120px; background-color:#FFB088; font-size: small;" value="#{p_entity.chartDem}" onLabel="#{msg['chart.dem']}" offLabel="#{msg['chart.dem']}" onIcon="ui-icon-check" offIcon="ui-icon-close">
+			<p:ajax listener="#{p_entity.chooseChart}" update="formBody:panelImplementazioniGrafici,  formBody:valoriElementiSpallaDestra, formBody:infoControllerToJsSinglePointMarker"/>
+		</p:selectBooleanButton>
+			
+		<p:selectBooleanButton style="width:120px; background-color:#FFB088; font-size: small;" value="#{p_entity.chartAltitudineDem}" onLabel="#{msg['chart.altitudine.dem']}" offLabel="#{msg['chart.altitudine.dem']}" onIcon="ui-icon-check" offIcon="ui-icon-close">
+			<p:ajax listener="#{p_entity.chooseChart}" update="formBody:panelImplementazioniGrafici,  formBody:valoriElementiSpallaDestra, formBody:infoControllerToJsSinglePointMarker"/>
+		</p:selectBooleanButton>
+		
+		<p:selectBooleanButton style="width:120px; background-color:#FFB088; font-size: small;" value="#{p_entity.chartAllarmeValore}" onLabel="#{msg['chart.allarme.valore']}" offLabel="#{msg['chart.allarme.valore']}" onIcon="ui-icon-check" offIcon="ui-icon-close">
+			<p:ajax listener="#{p_entity.chooseChart}" update="formBody:panelImplementazioniGrafici,  formBody:valoriElementiSpallaDestra, formBody:infoControllerToJsSinglePointMarker"/>
+		</p:selectBooleanButton>
+				
+	    <p:separator style="margin-bottom:10px"/>
+	    
+	    <p:outputLabel style="font-size: small; font-weight: bolder;">#{msg['chart.select.orario']}</p:outputLabel>
+	  	<p:selectOneMenu value="#{p_entity.singleOraio}" effect="fade" filter="true" filterMatchMode="startsWith" style="width:120px" panelStyle="width:150px">
+	    	<f:selectItems value="#{p_entity.listOrari}" var="elementoVar" itemLabel="#{elementoVar.labelOraio}" itemValue="#{elementoVar}"/>
+	        <p:ajax listener="#{p_entity.selectOraioChart}" update="formBody:panelImplementazioniGrafici, formBody:implementazioniGraficiScrollOrario, formBody:graficiMappaPanel,  formBody:valoriElementiSpallaDestra, formBody:infoControllerToJsSinglePointMarker" />   
+	    </p:selectOneMenu>    
+	</div>
+	
+	<div id="implementazioniGrafici">
+		<p:panel id="panelImplementazioniGrafici">
+			<h:panelGroup rendered="#{p_entity.typeGeneraleController}">
+				<p:lineChart styleClass="graficoCompostoStyle" id="lineGenerale" value="#{p_entity.combinedModel}" minY="#{p_entity.minY}" maxY="#{p_entity.maxY}"  minX="0" zoom="true" showMarkers="false" legendPosition="#{p_entity.positionlegend}" >						
+					<p:ajax event="itemSelect" listener="#{mappaGeneraleController.itemSelect}" update="formBody:graficiMappaPanel,  formBody:valoriElementiSpallaDestra, formBody:infoControllerToJsSinglePointMarker" process="@this"/>
+				</p:lineChart>
+			</h:panelGroup>
+			
+			<h:panelGroup rendered="#{p_entity.typeConcentrazioniController}">
+				<p:lineChart styleClass="graficoCompostoStyle" id="lineConcentrazioni" value="#{p_entity.combinedModel}" minY="#{p_entity.minY}" maxY="#{p_entity.maxY}"  minX="0" zoom="true" showMarkers="false" legendPosition="#{p_entity.positionlegend}">						
+					<p:ajax event="itemSelect" listener="#{mappaConcentrazioniController.itemSelect}" update="formBody:graficiMappaPanel,  formBody:valoriElementiSpallaDestra, formBody:infoControllerToJsSinglePointMarker" process="@this"/>
+				</p:lineChart>
+			</h:panelGroup>
+			
+			<h:panelGroup rendered="#{p_entity.typeAllarmeController}">
+				<p:lineChart styleClass="graficoCompostoStyle" id="lineAllarmi" value="#{p_entity.combinedModel}" minY="#{p_entity.minY}" maxY="#{p_entity.maxY}"  minX="0" zoom="true" showMarkers="false" legendPosition="#{p_entity.positionlegend}">						
+					<p:ajax event="itemSelect" listener="#{mappaAllarmiController.itemSelect}" update="formBody:graficiMappaPanel,  formBody:valoriElementiSpallaDestra, formBody:infoControllerToJsSinglePointMarker" process="@this"/>
+				</p:lineChart>
+			</h:panelGroup>
+		</p:panel>
+
+		<div id="scorriChart">
+			<p:commandLink styleClass="idFrecciaSinistra" action="#{p_entity.scorriChartSinistra}" disabled="#{p_entity.disableFrecciaSinistraChart}" update="formBody:graficiMappaPanel,  formBody:valoriElementiSpallaDestra, formBody:infoControllerToJsSinglePointMarker">
+				<h:graphicImage	url="../../resources/images/pulsanti/frecciaSinistraChart.png" />
+			</p:commandLink>
+			
+			<div id="implementazioniGraficiScroll">
+		 		<p:outputLabel id="implementazioniGraficiScrollOrario" style="font-size: xx-large; font-weight: bolder;">#{p_entity.singleOraioStamp}</p:outputLabel>   
+			</div>
+			
+			<p:commandLink styleClass="idFrecciaDestra" action="#{p_entity.scorriChartDestra}" disabled="#{p_entity.disableFrecciaDestraChart}" update="formBody:graficiMappaPanel,  formBody:valoriElementiSpallaDestra, formBody:infoControllerToJsSinglePointMarker">
+				<h:graphicImage	url="../../resources/images/pulsanti/frecciaDestraChart.png"  />
+			</p:commandLink>
+		</div>  
+	</div>  
+</ui:composition>
